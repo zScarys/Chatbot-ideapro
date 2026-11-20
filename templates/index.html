@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEAPRO SmartPath</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">I</div>
+            <div>
+                <strong>IDEAPRO</strong>
+                <span>SMARTPATH</span>
+            </div>
+        </div>
+        <div class="status">
+            <span class="dot"></span> Prototipo funcional
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">ASISTENTE INTELIGENTE PARA EMPRESAS</span>
+                <h1>Tu camino hacia el <span>mercado público</span> empieza aquí.</h1>
+                <p>SmartPath identifica las capacidades de tu empresa, detecta brechas y propone una ruta inicial de crecimiento para ayudarte a prepararte para el mercado público.</p>
+                
+                <div class="hero-actions">
+                    <button class="btn primary" onclick="iniciarDiagnostico()">
+                        Comenzar diagnóstico
+                    </button>
+                    <button class="btn secondary" onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})">
+                        Hablar con SmartPath
+                    </button>
+                </div>
+            </div>
+
+            <!-- TARJETA DE NIVEL -->
+            <div class="hero-card">
+                <div class="mini-label">NIVEL DE PREPARACIÓN</div>
+                <div class="score-ring">
+                    <span id="heroScore">--</span>
+                </div>
+                <p>Realiza el diagnóstico para conocer el nivel de preparación de tu empresa.</p>
+            </div>
+        </section>
+
+        <!-- CARACTERÍSTICAS -->
+        <section class="features">
+            <article>
+                <div class="icon">01</div>
+                <h3>Diagnóstico</h3>
+                <p>Evalúa cinco dimensiones importantes de tu empresa.</p>
+            </article>
+            <article>
+                <div class="icon">02</div>
+                <h3>Perfil empresarial</h3>
+                <p>Identifica fortalezas y áreas que necesitan atención.</p>
+            </article>
+            <article>
+                <div class="icon">03</div>
+                <h3>Ruta de crecimiento</h3>
+                <p>Obtén próximos pasos claros y priorizados.</p>
+            </article>
+        </section>
+
+        <!-- DIAGNÓSTICO -->
+        <section id="diagnostico" class="panel hidden">
+            <div class="section-heading">
+                <span class="eyebrow">DIAGNÓSTICO INICIAL</span>
+                <h2>Conoce el nivel de preparación de tu empresa</h2>
+                <p>Asigna un valor de 0 a 100 a cada dimensión.</p>
+            </div>
+
+            <form id="diagnosticoForm" onsubmit="realizarDiagnostico(event)">
+                <div class="form-grid">
+                    <label>Nombre de la empresa
+                        <input type="text" id="empresa" placeholder="Ej. Muebles Andinos" required>
+                    </label>
+                    <label>Sector
+                        <input type="text" id="sector" placeholder="Ej. Manufactura" required>
+                    </label>
+                </div>
+
+                <div class="sliders">
+                    <div class="slider-row">
+                        <div><b>Experiencia con el Estado</b></div>
+                        <input type="range" id="experiencia" min="0" max="100" value="50">
+                    </div>
+                    <div class="slider-row">
+                        <div><b>Capacidad operativa</b></div>
+                        <input type="range" id="capacidad" min="0" max="100" value="50">
+                    </div>
+                    <div class="slider-row">
+                        <div><b>Situación financiera</b></div>
+                        <input type="range" id="finanzas" min="0" max="100" value="50">
+                    </div>
+                    <div class="slider-row">
+                        <div><b>Preparación comercial</b></div>
+                        <input type="range" id="comercial" min="0" max="100" value="50">
+                    </div>
+                    <div class="slider-row">
+                        <div><b>Conocimiento del mercado público</b></div>
+                        <input type="range" id="conocimiento" min="0" max="100" value="50">
+                    </div>
+                </div>
+
+                <button class="btn primary full" type="submit">Analizar mi empresa</button>
+            </form>
+        </section>
+
+        <!-- RESULTADOS -->
+        <section id="resultado" class="panel hidden"></section>
+
+        <!-- CHATBOT -->
+        <section id="chat" class="chat-section">
+            <div class="section-heading">
+                <span class="eyebrow">SMARTPATH AI</span>
+                <h2>Conversa con tu asistente</h2>
+                <p>El prototipo funciona en modo DEMO incluso sin créditos de API.</p>
+            </div>
+
+            <div class="chat-box">
+                <div id="messages" class="messages">
+                    <div class="message bot">
+                        <div class="avatar">I</div>
+                        <div>
+                            <span class="mode">DEMO</span>
+                            <p>¡Hola! Soy SmartPath, el asistente virtual de IDEAPRO. ¿A qué se dedica tu empresa?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="chatForm" class="chat-input" onsubmit="enviarMensaje(event)">
+                    <input type="text" id="messageInput" autocomplete="off" placeholder="Escribe tu mensaje..." required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <strong>IDEAPRO SmartPath</strong>
+        <span>Prototipo académico · Sistema de diagnóstico y orientación empresarial</span>
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
